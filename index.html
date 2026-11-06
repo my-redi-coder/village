@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Redi’s Village</title>
+  <meta name="description" content="내가 만든 것들이 사는 마을">
+  <meta property="og:title" content="Redi’s Village">
+  <meta property="og:description" content="내가 만든 것들이 사는 마을">
+  <meta name="theme-color" content="#65c6f7">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🏡%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+
+  <!-- 레이어별 스타일: 바꾸고 싶은 레이어의 파일만 수정하세요 -->
+  <link rel="stylesheet" href="css/00-base.css">
+  <link rel="stylesheet" href="css/10-map.css">
+  <link rel="stylesheet" href="css/20-sky.css">
+  <link rel="stylesheet" href="css/30-title.css">
+  <link rel="stylesheet" href="css/40-buildings.css">
+  <link rel="stylesheet" href="css/50-lots.css">
+</head>
+<body>
+  <main class="wrap" aria-label="Redi’s Village 지도">
+
+    <!-- 0. 배경 지도 → assets/map/background.webp -->
+    <img class="map" src="assets/map/background.webp" width="864" height="1821" alt="">
+
+    <!-- 1. 하늘 (지나가는 새) → css/20-sky.css -->
+    <div class="layer" id="layer-sky" aria-hidden="true">
+      <div class="bird">
+        <svg viewBox="0 0 60 40">
+          <ellipse cx="28" cy="24" rx="15" ry="10" fill="#ffd24a"/>
+          <circle cx="43" cy="19" r="7.5" fill="#ffd24a"/>
+          <path d="M50 18l7 2.5-7 2z" fill="#f08a3c"/>
+          <circle cx="45" cy="17.5" r="1.4" fill="#4a3a2a"/>
+          <path d="M24 20c-6-9-13-10-17-8 6 1 9 4 11 11z" fill="#f3b72f"/>
+          <path d="M14 27l-9 4 11-1z" fill="#f3b72f"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- 2. 빈터 표지판 → js/lots.js · css/50-lots.css -->
+    <div class="layer" id="layer-lots"></div>
+
+    <!-- 3. 건물 → js/config.js · js/buildings.js · css/40-buildings.css -->
+    <div class="layer" id="layer-buildings"></div>
+
+    <!-- 4. 구름 로고 → assets/title/logo.webp · css/30-title.css -->
+    <div class="layer" id="layer-title">
+      <h1 class="title"><img src="assets/title/logo.webp" width="1600" height="527" alt="Redi’s Village"></h1>
+    </div>
+
+    <p class="sr" id="live" aria-live="polite"></p>
+  </main>
+
+  <!-- 건물·빈터 목록(config)을 먼저 불러온 뒤 각 레이어 동작을 불러와요 -->
+  <script src="js/config.js"></script>
+  <script src="js/lots.js"></script>
+  <script src="js/buildings.js"></script>
+</body>
+</html>
