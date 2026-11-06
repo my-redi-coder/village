@@ -1,0 +1,25 @@
+/* ─────────────────────────────────────────
+   30-title · 구름 로고 레이어 ("Redi’s Village")
+   로고 그림은 assets/title/logo.webp — 같은 이름으로 덮어쓰면 바로 바뀌어요.
+   크기·위치는 아래 left / top / width 로 조절하세요.
+   ───────────────────────────────────────── */
+.title {
+  position: absolute;
+  left: 3%;
+  top: 1%;
+  width: 94%;
+  margin: 0;
+  line-height: 0;
+  animation: title-bob 6s ease-in-out infinite alternate;
+}
+.title img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 1.2cqw 1.4cqw rgba(40, 110, 170, .25));
+}
+
+@keyframes title-bob {
+  from { transform: translateY(0) rotate(-.5deg); }
+  to   { transform: translateY(-1.8cqw) rotate(.5deg); }
+}

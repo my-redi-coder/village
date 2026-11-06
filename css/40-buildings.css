@@ -1,0 +1,68 @@
+/* ─────────────────────────────────────────
+   40-buildings · 건물 레이어
+   - 건물 하나 = <a class="spot"> 안에 [테두리 .ring] + [건물 그림 .bld]
+   - 첫 탭: .sel 클래스가 붙으며 흰 테두리가 보임 / 두 번째 탭: 이동
+   - 건물 목록·위치·크기는 js/config.js 에서 관리해요 (여기는 모양만 담당).
+   ───────────────────────────────────────── */
+.spot {
+  position: absolute;
+  display: block;
+  transform: translate(-50%, -100%);   /* 좌표(x, y)가 건물 '바닥 중앙'이 되게 */
+  line-height: 1;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  opacity: 0;                          /* 그림이 다 불러와지면 .ready 로 서서히 나타남 */
+  transition: transform .18s ease, opacity .25s ease;
+}
+.spot.ready { opacity: 1; }
+
+.bld {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  filter: drop-shadow(0 1.2cqw .8cqw rgba(30, 60, 20, .22));
+}
+
+/* 선택 테두리 — 건물보다 조금 더 큰 흰 윤곽 그림(위치·크기는 js/buildings.js 가 자동 계산) */
+.ring {
+  position: absolute;
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .16s ease;
+  filter: drop-shadow(0 1cqw 1.1cqw rgba(30, 60, 20, .28));
+}
+
+/* 마우스가 있는 기기에서만 살짝 들뜨는 효과 (폰에서 '붙어버리는 hover' 방지) */
+@media (hover: hover) {
+  .spot:not(.sel):hover { transform: translate(-50%, -100%) translateY(-1.2cqw) scale(1.03); }
+}
+.spot:active { transform: translate(-50%, -100%) scale(.97); }
+.spot:focus-visible { outline: .6cqw solid #ffd84a; outline-offset: .4cqw; border-radius: 2cqw; }
+
+/* 선택됨 */
+.spot.sel {
+  z-index: 5;
+  transform: translate(-50%, -100%) scale(1.03);
+  animation: spot-pop .28s ease-out;
+}
+.spot.sel .ring { opacity: 1; }
+
+@keyframes spot-pop {
+  0%   { transform: translate(-50%, -100%) scale(1); }
+  55%  { transform: translate(-50%, -100%) scale(1.06); }
+  100% { transform: translate(-50%, -100%) scale(1.03); }
+}
+
+/* 테두리 이미지가 아직 없는 새 건물을 위한 임시 윤곽 (assets/rings/<id>.webp 를 만들면 자동으로 안 쓰임) */
+.spot.no-ring.sel .bld {
+  filter: drop-shadow(0 0 .5cqw #fff) drop-shadow(0 0 .5cqw #fff) drop-shadow(0 0 .5cqw #fff)
+          drop-shadow(0 1.2cqw .8cqw rgba(30, 60, 20, .22));
+}

@@ -1,0 +1,33 @@
+/* ─────────────────────────────────────────
+   10-map · 배경 지도 레이어와 레이어 공통 틀
+   - .wrap 이 마을 전체 틀이에요. 폭은 최대 540px, 그 안의 모든 크기는 cqw(틀 폭의 1%)로 맞춰져요.
+   - 각 레이어(.layer)는 지도 위에 같은 크기로 겹쳐지는 투명 판이에요.
+   ───────────────────────────────────────── */
+.wrap {
+  position: relative;
+  max-width: 540px;
+  margin: 0 auto;
+  overflow: hidden;
+  container-type: inline-size;
+  line-height: 0;
+}
+
+.map {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;   /* 아래 레이어 터치를 막지 않게. 눌러야 하는 것만 auto 로 켬 */
+}
+
+/* 레이어 쌓이는 순서 (숫자가 클수록 위) */
+#layer-sky       { z-index: 3; }
+#layer-lots      { z-index: 3; }
+#layer-buildings { z-index: 4; }
+#layer-title     { z-index: 6; }

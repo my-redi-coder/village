@@ -1,0 +1,53 @@
+/* ─────────────────────────────────────────
+   00-base · 전역 색상 변수, 폰트, 안전영역(노치) 처리
+   마을 전체 분위기(하늘색·풀색, 표지판 색)를 바꾸고 싶을 때 여기만 수정하세요.
+   ───────────────────────────────────────── */
+:root {
+  --sky: rgb(101, 198, 247);   /* 지도 맨 위 하늘색 — 배경 이미지를 바꾸면 같이 맞춰 주세요 */
+  --grass: rgb(79, 149, 77);   /* 지도 맨 아래 풀색 */
+  --sign: #c79a62;             /* 공사 예정 표지판 */
+  --sign-edge: #8a6232;
+  --sign-text: #fff8ea;
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+*, *::before, *::after { box-sizing: inherit; }
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+  background: var(--grass);
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, var(--sky) 0, var(--sky) 240px, var(--grass) 240px);
+  font-family: "Jua", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 폰 상단 상태바 영역을 하늘색으로 채움 */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  background: var(--sky);
+  z-index: 10;
+}
+
+/* 화면에는 안 보이고 스크린리더에만 읽히는 글자 */
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* 움직임 줄이기 설정을 켠 기기에서는 모든 애니메이션 정지 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

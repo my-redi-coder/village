@@ -1,0 +1,25 @@
+/* ─────────────────────────────────────────
+   20-sky · 하늘 레이어 (지나가는 새)
+   새를 없애려면 index.html 의 #layer-sky 안 .bird 를 지우면 돼요.
+   ───────────────────────────────────────── */
+.bird {
+  position: absolute;
+  top: 8.5%;
+  left: -12%;
+  width: 9cqw;
+  animation: bird-fly 34s linear infinite;
+}
+.bird svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: bird-flap .5s ease-in-out infinite alternate;
+}
+
+@keyframes bird-fly  { from { transform: translateX(0); } to { transform: translateX(125cqw); } }
+@keyframes bird-flap {
+  from { transform: translateY(0) rotate(-3deg); }
+  to   { transform: translateY(-1.2cqw) rotate(3deg); }
+}
+
+@media (prefers-reduced-motion: reduce) { .bird { left: 62%; } }
