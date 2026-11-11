@@ -23,11 +23,10 @@ window.VILLAGE = {
     { id: "house",   label: "이사 준비 대시보드",     href: "https://claude.ai/artifact/8ezKX3vRFPJjKpmcS5KNDU", x: 715, y: 1135, w: 270 },
     { id: "stadium", label: "문학야구장",             href: "https://my-redi-coder.github.io/munhak/",           x: 272, y: 1300, w: 350 },
     { id: "trophy",  label: "26 후반기 승리 감상평",  href: "https://my-redi-coder.github.io/baseball/",         x: 660, y: 1455, w: 165 },
-    { id: "turtle",  label: "사주 · 오늘의 운세",     href: "https://claude.ai/artifact/9sdT6HysSyGjHABLCP6CAf", x: 147, y: 607,  w: 88 }
+    { id: "turtle",  label: "사주 · 오늘의 운세",     href: "https://claude.ai/artifact/9sdT6HysSyGjHABLCP6CAf", x: 238, y: 600,  w: 88 }
   ],
 
-  // 아직 건물이 없는 빈터 ("공사 예정" 표지판이 서요)
-  lots: [
-    { x: 265, y: 760 }
-  ]
+  // 아직 건물이 없는 빈터 ("공사 예정" 표지판이 서요) — 지금은 없어요
+  // 새 빈터가 필요하면 { x: 265, y: 760 } 처럼 한 줄 추가하세요
+  lots: []
 };
