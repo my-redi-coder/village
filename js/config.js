@@ -20,7 +20,8 @@ window.VILLAGE = {
 
   buildings: [
     { id: "bank",    label: "나의 자산 관리",         href: "https://claude.ai/artifact/NhwWdSEhFkMRyLG87PGkzn", x: 690, y: 752,  w: 280 },
-    { id: "house",   label: "이사 준비 대시보드",     href: "https://claude.ai/artifact/8ezKX3vRFPJjKpmcS5KNDU", x: 715, y: 1135, w: 270 },
+    { id: "sign",    label: "이사 준비 대시보드",     href: "https://claude.ai/artifact/8ezKX3vRFPJjKpmcS5KNDU", x: 781, y: 852,  w: 62 },
+    { id: "house",   label: "우리집 미니어처",        href: "https://claude.ai/code/artifact/1f9a5842-bc01-4ca4-a23a-3982c6be3059", x: 715, y: 1135, w: 270 },
     { id: "stadium", label: "문학야구장",             href: "https://my-redi-coder.github.io/munhak/",           x: 272, y: 1300, w: 350 },
     { id: "trophy",  label: "26 후반기 승리 감상평",  href: "https://my-redi-coder.github.io/baseball/",         x: 660, y: 1455, w: 165 },
     { id: "turtle",  label: "사주 · 오늘의 운세",     href: "https://claude.ai/artifact/9sdT6HysSyGjHABLCP6CAf", x: 238, y: 600,  w: 88 }
