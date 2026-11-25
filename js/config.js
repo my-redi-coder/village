@@ -24,7 +24,8 @@ window.VILLAGE = {
     { id: "house",   label: "우리집 미니어처",        href: "https://claude.ai/code/artifact/1f9a5842-bc01-4ca4-a23a-3982c6be3059", x: 715, y: 1135, w: 270 },
     { id: "stadium", label: "문학야구장",             href: "https://my-redi-coder.github.io/munhak/",           x: 272, y: 1300, w: 350 },
     { id: "trophy",  label: "26 후반기 승리 감상평",  href: "https://my-redi-coder.github.io/baseball/",         x: 660, y: 1455, w: 165 },
-    { id: "turtle",  label: "사주 · 오늘의 운세",     href: "https://claude.ai/artifact/9sdT6HysSyGjHABLCP6CAf", x: 238, y: 600,  w: 88 }
+    { id: "turtle",  label: "사주 · 오늘의 운세",     href: "https://claude.ai/artifact/9sdT6HysSyGjHABLCP6CAf", x: 105, y: 598,  w: 88 },
+    { id: "gym",     label: "운동 일기",              href: "https://claude.ai/artifact/NaJzjS3yASt7vgNjVri9Jk", x: 260, y: 772,  w: 200 }
   ],
 
   // 아직 건물이 없는 빈터 ("공사 예정" 표지판이 서요) — 지금은 없어요
